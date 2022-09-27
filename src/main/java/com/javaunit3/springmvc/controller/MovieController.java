@@ -193,10 +193,10 @@ public class MovieController
 //        session.save(movieEntity);
         MovieEntity savedMovie = movieService.saveOrUpdate(movieEntity);
         System.out.println("================== savedMovie=" + savedMovie);
-//        System.out.println("================== savedMovie.title=" + savedMovie.getTitle());
-//        System.out.println("================== savedMovie.genre=" + savedMovie.getGenre());
-//        System.out.println("================== savedMovie.rating=" + savedMovie.getMaturityRating());
-//        System.out.println("================== savedMovie.id=" + savedMovie.getId());
+        System.out.println("================== savedMovie.title=" + savedMovie.getTitle());
+        System.out.println("================== savedMovie.genre=" + savedMovie.getGenre());
+        System.out.println("================== savedMovie.rating=" + savedMovie.getMaturityRating());
+        System.out.println("================== savedMovie.id=" + savedMovie.getId());
 //        session.getTransaction().commit();
 
         return "addMovie";

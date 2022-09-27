@@ -93,4 +93,15 @@ public class MovieEntity
     public int hashCode() {
         return Objects.hash(id, title, maturityRating, genre, votes);
     }
+
+    @Override
+    public String toString() {
+        return "MovieEntity{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", maturityRating='" + maturityRating + '\'' +
+                ", genre='" + genre + '\'' +
+                ", votes.size=" + votes.size() +
+                '}';
+    }
 }

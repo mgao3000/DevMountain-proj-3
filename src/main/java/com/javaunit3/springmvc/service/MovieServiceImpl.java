@@ -1,10 +1,12 @@
 package com.javaunit3.springmvc.service;
 
 import com.javaunit3.springmvc.entity.MovieEntity;
+import com.javaunit3.springmvc.entity.VoteEntity;
 import com.javaunit3.springmvc.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,6 +43,11 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public MovieEntity saveOrUpdate(MovieEntity movieEntity) {
-        return null;
+        if(movieEntity.getVotes() == null) {
+            List<VoteEntity> voteEntityList = new ArrayList<>();
+            movieEntity.setVotes(voteEntityList);
+        }
+        MovieEntity savedMovieEntity = movieRepository.save(movieEntity);
+        return savedMovieEntity;
     }
 }
