@@ -110,7 +110,15 @@ public class MovieController
 //        return "voteForBestMovie";
 //    }
 
-    @RequestMapping(value = "/voteForBestMovie", method = {RequestMethod.PUT, RequestMethod.GET})
+    @GetMapping(value = "/voteForBestMovie")
+    public String voteForBestMovie(Model model) {
+        List<MovieEntity> movieEntityList = movieService.getAllMovies();
+        model.addAttribute("movies", movieEntityList);
+
+        return "voteForBestMovie";
+    }
+
+    @PutMapping(value = "/voteForBestMovie")
     @Transactional
     public String voteForBestMovie(VoteBestMovieDto voteBestMovieDto, Model model) {
 //        String movieId = request.getParameter("movieId");
